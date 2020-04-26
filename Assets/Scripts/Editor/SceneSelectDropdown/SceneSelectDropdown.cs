@@ -21,6 +21,20 @@ namespace UnityTools
 
         //---------------------------------------------------------------------------------
 
+        void OnEnable()
+        {
+            m_showOnlyScenesInBuild = EditorPrefs.GetBool( "SceneSelectDropdown/ShowOnlyScenesInBuild" );
+        }
+
+        //---------------------------------------------------------------------------------
+
+        void OnDisable()
+        {
+            EditorPrefs.SetBool( "SceneSelectDropdown/ShowOnlyScenesInBuild", m_showOnlyScenesInBuild );
+        }
+
+        //---------------------------------------------------------------------------------
+
         protected virtual void OnGUI()
         {
             int current = -1;
